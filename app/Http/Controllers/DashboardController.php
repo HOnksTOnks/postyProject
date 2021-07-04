@@ -13,6 +13,6 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('posts.dashboard');
+        return view('dashboard');
     }
 }
