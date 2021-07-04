@@ -17,6 +17,12 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
+//sample change in git
+Route::get('/homes', function () {
+    return view('home');
+});
+
+
 Route::get('/', function () {
     return view('posts.home');
 })->name('home');
