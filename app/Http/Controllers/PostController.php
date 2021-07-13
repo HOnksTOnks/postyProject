@@ -9,17 +9,24 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts=Post::latest()->with(['user', 'likes'])->paginate(20);
+        $posts = Post::latest()->with(['user', 'likes'])->paginate(20);
 
         return view('posts.index', [
-            'posts'=> $posts
+            'posts' => $posts
+        ]);
+    }
+
+    public function show(Post $post)
+    {
+        return view('posts.show', [
+            'post' => $post
         ]);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'body'=>'required'
+            'body' => 'required'
         ]);
 
         $request->user()->posts()->create($request->only('body'));
